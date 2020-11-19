@@ -113,6 +113,7 @@ export const checkAuth = verifier => (req, res, next) => {
         ['stop']
       ]
     });
+    return;
   }
   const [, jwt] = auth;
 
