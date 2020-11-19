@@ -107,11 +107,11 @@ export const checkAuth = verifier => (req, res, next) => {
     //return next(new AccessDeniedError('Authorization Bearer not found'));
     //
     // TO STOP DDOS from /test_name
-    console.log("*** HACK Authroization Bearer not found.  Returning RPC destroyLocations, stop");
+    console.log("*** HACK Authorization Bearer not found.  Returning RPC destroyLocations, stop");
+    console.log(req.headers);
     console.log(req.body);
     return res.status(200).send({
       background_geolocation: [
-        ['destroyLocations'],
         ['stop']
       ]
     });
