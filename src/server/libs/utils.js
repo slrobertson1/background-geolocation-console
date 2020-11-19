@@ -108,6 +108,7 @@ export const checkAuth = verifier => (req, res, next) => {
     //
     // TO STOP DDOS from /test_name
     console.log("*** HACK Authroization Bearer not found.  Returning RPC destroyLocations, stop");
+    console.log(res.body);
     return res.status(200).send({
       background_geolocation: [
         ['destroyLocations'],
