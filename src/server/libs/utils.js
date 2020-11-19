@@ -101,7 +101,18 @@ export const checkAuth = verifier => (req, res, next) => {
   const auth = (req.get('Authorization') || '').split(' ');
 
   if (auth.length < 2 || auth[0] !== 'Bearer') {
-    return next(new AccessDeniedError('Authorization Bearer not found'));
+    ////
+    // HACK
+    //
+    //return next(new AccessDeniedError('Authorization Bearer not found'));
+    //
+    // TO STOP DDOS from /test_name
+    res.status(200).send({
+      background_geolocation: [
+        ['destroyLocations'],
+        ['stop']
+      ]
+    });
   }
   const [, jwt] = auth;
 
