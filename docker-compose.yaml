@@ -11,15 +11,17 @@ services:
   frontend:
       build: .
       image: console
+      volumes:
+        - /home/sr19/background-geolocation-console/surveys:/usr/surveys
       links:
         - db:db
       ports:
-        - 80:9000
+        - 443:9000
       depends_on:
         - db
       environment:
         - DATABASE_URL=postgres://postgres@db:5432/geolocation
-        - GOOGLE_MAPS_API_KEY=AI...vNkg
+        - GOOGLE_MAPS_API_KEY=AIzaSyBHWJTdV1JZogcynwm8s8TEjU4JS-7gj9k
       restart: always
 volumes:
   data:

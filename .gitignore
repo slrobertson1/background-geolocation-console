@@ -6,3 +6,4 @@ build/
 changes.diff
 backup.backup
 src/server/firebase/serviceAccount.json
+/src/server/ssl/

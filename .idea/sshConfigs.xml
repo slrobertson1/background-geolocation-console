@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig host="can-sensor.imtc.gatech.edu" id="be040f91-e162-42a3-8f40-12396c2dc3f6" keyPath="$USER_HOME$/.ssh/id_rsa" port="22" nameFormat="DESCRIPTIVE" username="sr19" />
+    </configs>
+  </component>
+</project>

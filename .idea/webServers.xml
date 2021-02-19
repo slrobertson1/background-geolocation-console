@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="f888387a-fe08-481d-971c-5a0bb544db7a" name="can-sensor" url="http://can-sensor.imtc.gatech.edu">
+        <fileTransfer rootFolder="/home/sr19" accessType="SFTP" host="can-sensor.imtc.gatech.edu" port="22" sshConfigId="be040f91-e162-42a3-8f40-12396c2dc3f6" sshConfig="sr19@can-sensor.imtc.gatech.edu:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

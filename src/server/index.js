@@ -4,6 +4,10 @@ import bodyParser from 'body-parser';
 import 'colors';
 import compress from 'compression';
 import express from 'express';
+import http from 'http';
+import https from 'https';
+import fs from 'fs';
+import path from 'path';
 import morgan from 'morgan';
 import { extname, resolve } from 'path';
 
@@ -20,6 +24,7 @@ import api from './routes/api-v2';
 import firebase from './routes/firebase-api';
 import siteApi from './routes/site-api';
 import tests from './routes/tests';
+import surveyApi from './routes/survey-api';
 
 const app = express();
 const buildPath = resolve(__dirname, '..', '..', 'build');
@@ -52,6 +57,8 @@ app.use(bodyParser.raw(parserLimits));
   app.use('/api/jwt', api);
   app.use('/api', firebaseURL ? firebase : api);
   app.use('/api', tests);
+  app.use('/api', surveyApi);
+
 
   if (isProduction) {
     app.use(express.static(buildPath));
@@ -84,9 +91,16 @@ app.use(bodyParser.raw(parserLimits));
       .send({ message: err.message || 'Something broke!' });
   });
 
-  app.listen(port, () => {
+  const sslOptions = {
+    key: fs.readFileSync(path.join(__dirname, '/ssl/can-sensor_imtc_gatech_edu.key')),
+    cert: fs.readFileSync(path.join(__dirname, '/ssl/can-sensor_imtc_gatech_edu_bundle.crt')),
+  };
+
+  // app.listen
+  https.createServer(sslOptions, app).listen(port, () => {
     console.log('╔═══════════════════════════════════════════════════════════'.green.bold);
-    console.log('║ Background Geolocation Server | port: %s, dyno: %s'.green.bold, port, dyno);
+    console.log('║ Background Geolocation Server w/ SSL | port: %s, dyno: %s'.green.bold, port, dyno);
+    console.log('║ Body Parser Limit: %s'.green.bold, parserLimits);
     console.log('╚═══════════════════════════════════════════════════════════'.green.bold);
   });
 })());

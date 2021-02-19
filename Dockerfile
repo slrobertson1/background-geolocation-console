@@ -24,7 +24,7 @@ ENV DATABASE_URL= \
 # For Postgres SQL
 # ENV DATABASE_URL=postgres://<username>:<password>@<hostname>:<port>/<dbname>
 # Google Maps API Key for map
-  GOOGLE_MAPS_API_KEY=AI...vNkg \
+  GOOGLE_MAPS_API_KEY=AIzaSyBHWJTdV1JZogcynwm8s8TEjU4JS-7gj9k \
 # Do you use it for a lot of organisation or users?
   SHARED_DASHBOARD= \
 # Manage them in one account? http://host:9000/admin256
